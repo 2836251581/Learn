@@ -10,13 +10,25 @@
 | 项 | 值 |
 | --- | --- |
 | PyCharm | **2026.2.2**，装在 `F:\PyCharm 2026.2.2` |
+| 启动程序 | `F:\PyCharm 2026.2.2\bin\pycharm64.exe`（⚠️ 用这个，`launcher.exe` 实测起不来） |
 | 项目根目录 | `F:\项目\学习\ai-career-plan` |
 | Python 解释器 | `F:\项目\学习\ai-career-plan\.venv\Scripts\python.exe`（Python 3.11.9） |
+| 解释器登记名 | **`Python 3.11 (ai-career-plan)`**（本鱼已写进 PyCharm 全局解释器表） |
 | 已装的包 | openai 3.28.0 / python-dotenv 1.2.4 / requests 2.34.2 |
 | API Key | 在 `F:\项目\学习\ai-career-plan\.env`（**已被 gitignore 挡住，不会被提交**） |
 
-本鱼已经在项目里放好了 `.idea\` 配置文件（解释器、编码、两个运行配置），
-所以**正常情况下一打开就能直接跑**，不用你手动配。
+本鱼已经在项目里放好了 `.idea\` 配置文件（解释器、UTF-8 编码、两个运行配置），
+**并且已经在你电脑上实测打开过一次**（2026-10-11 16:02，索引正常完成、git 集成自动识别）。
+
+**所以正常情况下一打开就能直接跑**，不用你手动配。
+
+### ★ 命令行想启动它（K 命令那种）
+
+```powershell
+& "F:\PyCharm 2026.2.2\bin\pycharm64.exe" "F:\项目\学习\ai-career-plan"
+```
+
+想做成永久命令的话，把这行加进你的 `$PROFILE` 就好（要的话本鱼帮你加）。
 
 ---
 
@@ -149,6 +161,22 @@ File → Settings → Project → Python Interpreter → 点 + 号
 
 1. **写代码前先拉一下**（`git pull`），写完再提交 —— 别攒一周才 commit
 2. **每个新脚本都在 PyCharm 里 Debug 跑一遍**，用调试器看结构，不只是看输出
+
+---
+
+## 六、本鱼已经替你验证过的（2026-10-11）
+
+| 验证项 | 结果 |
+| --- | --- |
+| 解释器登记 | ✅ 已写入 PyCharm 全局表（名字 `Python 3.11 (ai-career-plan)`，备份在 `F:\项目\学习\_环境备份\`） |
+| 项目打开 | ✅ 实测启动成功，日志 `Opening existing project with .idea`、索引 22 个文件正常完成 |
+| git 集成 | ✅ PyCharm 自动生成 `vcs.xml` 识别为 Git 仓库 |
+| 运行配置 | ✅ `hello_llm` 与 `run_experiments` 两个配置就位（工作目录 `code`、环境变量 `PYTHONIOENCODING=utf-8`） |
+| 敏感文件隔离 | ✅ `.env` / `.venv` / `.idea` 全部被 gitignore 挡住，`git status` 干净 |
+| ⚠️ 注意 | `bin\launcher.exe` 实测拉不起来，**用 `bin\pycharm64.exe`** |
+
+**如果打开后发现任何一处不对**（比如右下角显示 `<No interpreter>`），
+把截图发给本鱼，本鱼照着修 —— 不要自己乱点菜单，容易把配置点乱。
 
 ---
 
