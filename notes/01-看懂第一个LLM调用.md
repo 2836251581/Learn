@@ -144,8 +144,12 @@ cost = estimate_cost(usage.prompt_tokens, usage.completion_tokens)
 
 **你要做**：
 1. 读一遍 `run_experiments.py` 的代码（很短，注意它怎么复用成本计算）
-2. 跑它：`..\.venv\Scripts\python.exe run_experiments.py`
-3. **观察三次输出的差异**，把结论写进你的笔记
+2. ★ **在 PyCharm 里打开它，右上角选 `run_experiments` 运行配置，点绿色 ▶**
+   （命令行等价写法：`..\.venv\Scripts\python.exe run_experiments.py`）
+3. **观察多次输出的差异**，把结论写进你的笔记
+4. ★★ **再用 🐞 Debug 跑一遍**：在 `resp = client.chat.completions.create(...)` 那行打个断点，
+   暂停后在 Variables 面板里展开 `resp`，**看清楚 SDK 返回的对象到底长什么样**
+   —— `resp.choices[0].message.content` 这条路径是从这里看出来的，不是背的
 
 **跑之前先猜一下**（这叫「先预测再验证」，是工程思维的核心习惯）：
 - `temperature=0` 两次跑会不会完全一样？

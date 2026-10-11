@@ -1,10 +1,23 @@
 # code 目录 · 从这里开始写第一行
 
 > 这是给你的**可运行起点**，不是让你阅读的。
+>
+> ★ **工具纪律（2026-10-11 主人指定）**：以后的实践**基本都在 PyCharm 上完成**
+> （除特殊情况：一次性环境操作、只能跑在别的机器/容器里的东西、PyCharm 故障兜底）。
+> 详细操作见上级目录的 **`PyCharm使用指南.md`**；下面保留了命令行写法，方便你理解原理。
 
 ---
 
 ## 今天要做的（30 分钟）
+
+### 0. 在 PyCharm 里打开项目（推荐路径）
+
+```
+Open → F:\项目\学习\ai-career-plan
+```
+
+右下角解释器应为 **`Python 3.11 (ai-career-plan)`**。
+然后打开本目录的文件，右上角运行配置选好后**点绿色 ▶** 即可。
 
 ### 1. 虚拟环境（已建好，直接用）
 
@@ -15,7 +28,7 @@ cd F:\项目\学习\ai-career-plan\code
 ..\.venv\Scripts\python.exe hello_llm.py
 ```
 
-想激活成 `(.venv)` 那种：
+想激活成 `(.venv)` 那种（PyCharm 里用底部 Terminal）：
 ```powershell
 ..\.venv\Scripts\Activate.ps1
 ```
@@ -28,7 +41,7 @@ Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
 
 环境里已有：`openai 3.28.0` / `python-dotenv 1.2.4` / `requests 2.34.2`
 
-以后要补装：
+以后要补装（PyCharm 底部 Terminal，**认准 `.venv`**）：
 ```powershell
 ..\.venv\Scripts\python.exe -m pip install -r requirements.txt
 ```
@@ -45,8 +58,14 @@ Copy-Item code\.env.example .env
 **推荐先注册 DeepSeek**（https://platform.deepseek.com），充 10–20 元。
 它的价格是当前最便宜的之一，**而且空闲时段半价**。
 
+> ✅ 2026-10-11 现状：`.env` 已生成、key 已填、`hello_llm.py` 已跑通。
+
 ### 4. 跑起来
 
+**★ PyCharm 里**：打开 `hello_llm.py` → 右上角选 `hello_llm` → 绿色 ▶
+**★★ 更推荐**：点 🐞 Debug，在 `resp = client.chat...` 那行打断点，看 `resp` 对象结构
+
+命令行等价写法：
 ```powershell
 cd F:\项目\学习\ai-career-plan\code
 ..\.venv\Scripts\python.exe hello_llm.py
@@ -89,7 +108,8 @@ client = OpenAI(api_key=..., base_url="https://api.deepseek.com")
 改一改试试：`0` / `0.7` / `1.5`，观察同一个问题输出的稳定性差异。
 
 **注意**：`temperature=0` 是"几乎确定"，**不是"完全确定"**。
-这个细节面试可能会问。
+★ 本鱼实测过 `deepseek-chat`：**`temperature=0` 跑两遍输出也不一样**（见 `../notes/01-看懂第一个LLM调用.md`）。
+这个细节面试可能会问，而且直接决定第 7 周评测集怎么设计。
 
 ### 3. 那几行成本统计不是装饰
 
@@ -105,11 +125,12 @@ client = OpenAI(api_key=..., base_url="https://api.deepseek.com")
 跑通之后，按 `../行动方案.md` 的三阶段推进（第 1 周的任务就在那份文档里）。
 
 完成后你应该有：
-- [ ] 一个能跑的 `hello_llm.py`
-- [ ] 一个 GitHub 仓库（key 已排除）
-- [ ] 第一次 commit 和 push
+- [x] 一个能跑的 `hello_llm.py`（★ 在 PyCharm 里点 ▶ 跑通）
+- [x] 一个 GitHub 仓库（key 已排除）
+- [ ] 第一次 `push` 成功（还差你自己认证一次）
 
-**然后开始学 Python 工程化**（见 `../工程与数学基础.md`）。
+**然后做第 1 课实验**（`run_experiments.py`，**PyCharm 里 Debug 跑一遍**），
+再开始学 Python 工程化（见 `../工程与数学基础.md`）。
 
 ---
 
