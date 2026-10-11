@@ -20,6 +20,14 @@ import os
 import sys
 from pathlib import Path
 
+# Windows 的 PowerShell 默认用 GBK 解码输出，中文会变成乱码。
+# 这一句强制 Python 用 UTF-8 输出，全平台都不会乱码。
+try:
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except (AttributeError, ValueError):  # Python 3.6 及以下没有 reconfigure
+    pass
+
 try:
     from dotenv import load_dotenv
     from openai import OpenAI
