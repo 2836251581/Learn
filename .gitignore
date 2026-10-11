@@ -1,0 +1,26 @@
+# ★ 这个文件很重要：它挡住你的 API Key，防止被 GitHub 爬虫扫到盗刷
+.env
+.env.*
+!.env.example
+
+# Python 虚拟环境（虚拟环境不进 git，用 requirements.txt 重建即可）
+.venv/
+venv/
+env/
+__pycache__/
+*.py[cod]
+*.egg-info/
+
+# 编辑器
+.vscode/
+.idea/
+*.swp
+
+# 数据与产物
+*.log
+data/
+outputs/
+.cache/
+
+# Notebook
+.ipynb_checkpoints/
