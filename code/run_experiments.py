@@ -6,6 +6,9 @@
 跑法（在 code 目录下）：
     ..\.venv\Scripts\python.exe run_experiments.py
 
+    ★ PyCharm 里：右上角运行配置选「run_experiments」→ 点绿色 ▶
+      想单步看变量就点小虫子 🐞（Debug），在 resp 那行打个断点试试。
+
 读代码时注意两件事：
     1. 怎么复用 estimate_cost —— 功能拆成函数，才能被多处调用（工程习惯）
     2. 循环里只改了 temperature 一个变量 —— 这叫「控制变量」

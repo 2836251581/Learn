@@ -3,7 +3,11 @@
 .env.*
 !.env.example
 
+# ★ PyCharm 自动生成，不需要提交到 git（2026-10-11 加）
+.idea/
+
 # Python 虚拟环境（虚拟环境不进 git，用 requirements.txt 重建即可）
+# ⚠️ 这一行如果丢了，`git add -A` 会把 .venv 里几万个包文件全提交上去（2026-10-11 真实踩过）
 .venv/
 venv/
 env/
@@ -13,7 +17,6 @@ __pycache__/
 
 # 编辑器
 .vscode/
-.idea/
 *.swp
 
 # 数据与产物

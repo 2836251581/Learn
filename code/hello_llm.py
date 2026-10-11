@@ -10,6 +10,10 @@
 运行：
     python hello_llm.py
 
+    ★ 用 PyCharm 跑更方便（主人 2026-10-11 起改用 PyCharm）：
+      右上角运行配置选「hello_llm」→ 点绿色 ▶
+      （本鱼已经配好了工作目录和环境变量，详见 ../PyCharm使用指南.md）
+
 说明：
     - 这里用 DeepSeek 举例，因为它便宜、中文好、接口兼容 OpenAI 格式。
     - 换其他平台（通义千问 / 智谱 / 硅基流动 / 月之暗面）只需改 base_url 和 model 名，
