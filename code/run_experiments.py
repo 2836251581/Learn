@@ -34,9 +34,11 @@ except ModuleNotFoundError as exc:
 
 # ---------- 配置区 ----------
 BASE_URL = "https://api.deepseek.com"
+# `deepseek-chat` 是旧别名（官方现名 `deepseek-flash`，见 hello_llm.py 注释）
 MODEL = "deepseek-chat"
 
 # 每百万 token 单价（元）。⚠️ 以平台官网最新价目为准，这里只是估算。
+# 2026-10-11 官方价目折算并取高峰价（保守）。
 PRICE_INPUT_PER_M = 2.0
 PRICE_OUTPUT_PER_M = 8.0
 

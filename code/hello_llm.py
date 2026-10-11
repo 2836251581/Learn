@@ -48,11 +48,19 @@ except ModuleNotFoundError as exc:
 
 # ---------- 配置区：换平台只改这两行 ----------
 BASE_URL = "https://api.deepseek.com"
+# ★ 模型名（2026-10-11 查官方文档核实）：
+#   `deepseek-chat` 是**旧别名**，官方现在只认 `deepseek-flash` / `deepseek-v4-pro`。
+#   别名仍被接受，服务端返回的 model 字段是 'deepseek-flash' —— 但**别依赖旧名**。
+#   ⚠️ 用 `deepseek-flash` 这个正式名时，**thinking 模式默认开启**：
+#      模型会先输出一段 `reasoning_content` 思考内容，更慢也更贵。
+#      本脚本用旧名 `deepseek-chat`，实测走的是**非思考**路径（快、省）。
 MODEL = "deepseek-chat"
 # ---------------------------------------------
 
-# 每百万 token 的大致价格（元），用于估算花费。具体以平台官网为准。
-# DeepSeek 会返回缓存命中情况，这里做粗略估算。
+# 每百万 token 的价格。⚠️ 以平台官网为准，这里只是估算。
+# 2026-10-11 官方价目（deepseek-flash，美元）：缓存命中 $0.003/$0.006、未命中 $0.15/$0.3、输出 $0.6/$1.2
+# 折算人民币约：输入(未命中) ¥1 / ¥2、输出 ¥4 / ¥8，缓存命中约 1/50 价。
+# 这里取**高峰价**（保守估算，宁可高估不低估）。
 PRICE_INPUT_PER_M = 2.0
 PRICE_OUTPUT_PER_M = 8.0
 
