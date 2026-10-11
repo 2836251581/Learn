@@ -12,6 +12,7 @@
 | PyCharm | **2026.2.2**，装在 `F:\PyCharm 2026.2.2` |
 | 启动程序 | `F:\PyCharm 2026.2.2\bin\pycharm64.exe`（⚠️ 用这个，`launcher.exe` 实测起不来） |
 | 项目根目录 | `F:\项目\学习\ai-career-plan` |
+| 已配好的运行配置 | `hello_llm` / `run_experiments` / `run_config_repeat_test` / `compare_seed` / `stream_demo` / `retry_demo` / `chat_cli`（**交互类脚本用 Run 窗口，可直接在里面打字**） |
 | Python 解释器 | `F:\项目\学习\ai-career-plan\.venv\Scripts\python.exe`（Python 3.11.9） |
 | 解释器登记名 | **`Python 3.11 (ai-career-plan)`**（本鱼已写进 PyCharm 全局解释器表） |
 | 已装的包 | openai 3.28.0 / python-dotenv 1.2.4 / requests 2.34.2 |
